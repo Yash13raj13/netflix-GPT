@@ -4,7 +4,6 @@ import VidTitle from "./VidTitle";
 import VidBg from "./VidBg";
 import type { RootState } from "../utils/appStore";
 
-// Recommendation: Move this to a central types file (e.g., types.ts)
 interface Movie {
   id: number;
   title: string;
@@ -12,19 +11,19 @@ interface Movie {
 }
 
 const MainCont = () => {
-  // 1. Better Typing: Cast the selector result so TS knows it is an array of Movies
-  const movies = useSelector((store: RootState) => store.movies?.nowPlayingMovies);
+  // 1. Fix Typing: Cast the selector to Movie[] | null
+  // This tells TypeScript that 'movies' is an array, enabling .length and indexing
+  const movies = useSelector((store: RootState) => store.movies?.nowPlayingMovies) as Movie[] | null;
 
-  // 2. Fix "Flickering": Use useMemo to pick a random movie ONLY when the 'movies' list changes.
-  // Without this, every time you click a button or type (causing a re-render), the background movie would randomize again.
+  // 2. Memoize the random selection to prevent re-randomizing on every click/re-render
   const mainMovie = useMemo(() => {
     if (!movies || movies.length === 0) return null;
     const randomIndex = Math.floor(Math.random() * movies.length);
     return movies[randomIndex];
   }, [movies]);
 
-  // 3. Early Return: Handle loading state
-  if (!mainMovie) return null; // Or return a Shimmer/Loading component
+  // 3. Early Return: If movies aren't loaded yet, don't try to render
+  if (!mainMovie) return null; 
 
   const { title, overview, id } = mainMovie;
 

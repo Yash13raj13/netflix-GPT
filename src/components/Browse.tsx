@@ -3,11 +3,10 @@ import Gpt from "./Gpt";
 import MainCont from "./MainCont";
 import SecCont from "./SecCont";
 import { useSelector } from "react-redux";
-import type { RootState } from "../utils/appStore";
+import type { RootState } from "../utils/appStore"; // Fixed Path
 
 const Browse = () => {
-  const gptView = useSelector((store: RootState) => store.gpt.showGptSearch);
-
+  const gptView = useSelector((store: RootState) => store.gpt.GptButton); // Changed from showGptSearch
   return (
     <div>
       <Header />

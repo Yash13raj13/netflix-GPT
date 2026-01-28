@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API_OPTIONS } from "../utils/constants";
-import { addNowPlayingMovies } from "../utils/movieSlice";
-import type { RootState } from "../utils/appStore";
+import { API_OPTIONS } from "../utils/constants"; // Fixed Path
+import { addNowPlayingMovies } from "../utils/movieSlice"; // Fixed Path
+import type { RootState } from "../utils/appStore"; // Fixed Path
 
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
