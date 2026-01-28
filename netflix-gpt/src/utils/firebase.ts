@@ -1,24 +1,21 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-
-import { getAuth} from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBUJeEC-9NbXHBbO2Gh8B9egzq2FwGl2j0",
-  authDomain: "netflix-gpt-df1ff.firebaseapp.com",
-  projectId: "netflix-gpt-df1ff",
-  storageBucket: "netflix-gpt-df1ff.firebasestorage.app",
-  messagingSenderId: "886290196820",
-  appId: "1:886290196820:web:a7f016299c3a8a511e80c1",
-  measurementId: "G-115Q1T16CH"
+  apiKey: "AIzaSyAjdiblF02FtNLiQLzXvLwvyBMluwdGpuc",
+  authDomain: "netflixgpt-f3487.firebaseapp.com",
+  projectId: "netflixgpt-f3487",
+  storageBucket: "netflixgpt-f3487.firebasestorage.app",
+  messagingSenderId: "813145214124",
+  appId: "1:813145214124:web:a0a7cf7a55859659b8a309",
+  measurementId: "G-J6ZMFGG85V"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-
-
-export const auth = getAuth(app);
+const analytics = getAnalytics(app);

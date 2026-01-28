@@ -65,10 +65,8 @@ const Login = () => {
           email.current.value,
           password.current.value
         )
-          .then((userCredential) => {
+          .then(() => {
             // Signed in
-            // const user = userCredential.user; 
-            // Navigation handled in Header via onAuthStateChanged
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -106,32 +104,36 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
+            className="p-4 my-4 w-full bg-[#333] rounded-lg border border-transparent focus:border-gray-500 focus:outline-none"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-4 w-full bg-[#333] rounded-lg border border-transparent focus:border-gray-500 focus:outline-none"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-4 w-full bg-[#333] rounded-lg border border-transparent focus:border-gray-500 focus:outline-none"
         />
-        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+        
+        <p className="text-[#e50914] font-bold text-lg py-2">{errorMessage}</p>
+        
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-4 my-6 bg-[#e50914] w-full rounded-lg font-bold hover:bg-[#c11119] transition-all duration-200"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
-          {isSignInForm
-            ? "New to Netflix? Sign Up Now"
-            : "Already registered? Sign In Now."}
+        
+        <p className="py-4 text-gray-400">
+          {isSignInForm ? "New to Netflix? " : "Already registered? "}
+          <span className="text-white font-bold cursor-pointer hover:underline" onClick={toggleSignInForm}>
+            {isSignInForm ? "Sign Up Now" : "Sign In Now."}
+          </span>
         </p>
       </form>
     </div>
